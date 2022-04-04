@@ -17,7 +17,7 @@ const ContextProvider = (props) => {
 
     return (
         <MainContext.Provider key={coachLogin.id}value= {{
-            coachLogin, team
+            coachLogin, team, setCoachLogin, setTeam
         }}>
             {props.children}
         </MainContext.Provider>
