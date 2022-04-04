@@ -1,0 +1,8 @@
+.Footer{
+    background-color: grey;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:'Bebas Neue', cursive;
+}

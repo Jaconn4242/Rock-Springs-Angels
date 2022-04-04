@@ -1,0 +1,65 @@
+header{
+    background-color: red;
+    background: linear-gradient(180deg, red,red,red,red,red,red, grey);
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Header-title{
+    color: whitesmoke;
+    margin: auto;
+    font-family: 'Bebas Neue', cursive;
+}
+.Header-logo{
+    position: relative;
+    text-align: left;
+}
+.dropDownMenu{
+    position: absolute;
+    top: 5em;
+    display: flex;
+    flex-direction: column;
+    gap: .75em;
+    padding: .5em;
+    border: 3px solid black;
+    box-shadow: 0 2px 5px 0;
+    width: 25%;
+    background: linear-gradient(135deg, grey, white);
+}
+.menuLink{
+    outline: 2px solid red;
+    line-height: 30px;
+    text-indent: 7px;
+    border-radius: 9px;
+    text-decoration: none;
+    color: black;
+    font-weight: 550;
+}
+
+.coach-login-link{
+    color: blue;
+    text-decoration: underline;
+    width: fit-content
+}
+.coach-login-link:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.menuLink:hover{
+    background-color: rgb(212, 110, 110);
+    transform: scale(1.05);
+}
+
+.coach-login-form{
+    position: absolute;
+    top: 16em;
+    left: 7em;
+}
+.form-container{
+    border: 2px solid purple;
+    padding: .5em;
+    line-height: 2;
+    background-color: lightslategray;
+    border-radius: 10px;
+}
