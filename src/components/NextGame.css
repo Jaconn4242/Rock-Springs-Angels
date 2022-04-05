@@ -1,0 +1,18 @@
+.game-details-container{
+    text-align: center;
+}
+.game-details-picture{
+    width: 100%;
+    margin-bottom: 1em;
+}
+.game-details-date{
+    font-size: 14px;
+}
+.batting-line-up-container{
+    columns: 2;
+    box-shadow: 0 2px 5px 3px;
+    width: 60%;
+    padding-left: 2em;
+    margin: auto;
+    margin-bottom: 1em;
+}

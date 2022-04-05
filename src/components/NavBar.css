@@ -38,9 +38,12 @@ header{
 }
 
 .coach-login-link{
+    font-family: sans-serif;
     color: blue;
     text-decoration: underline;
-    width: fit-content
+    background: none;
+    border: none;
+    width: fit-content;
 }
 .coach-login-link:hover{
     transform: scale(1.1);

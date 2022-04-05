@@ -9,6 +9,7 @@ import AboutUs from "./components/AboutUs";
 import Team from "./components/Team";
 import ErrorPg from "./components/ErrorPg";
 import CoachAdmin from "./components/CoachAdmin";
+import NextGame from "./components/NextGame"
 import './App.css';
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/team" element={<Team />} />
         <Route path="/coachadmin" element={<CoachAdmin />} />
+        <Route path="/nextgame" element={<NextGame />} />
         <Route path="*" element={<ErrorPg />} />
       </Routes>
         <Footer />

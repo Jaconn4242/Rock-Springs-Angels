@@ -1,56 +1,15 @@
-.Schedule{
-    border: 2px solid black;
-    background-color: rgb(150, 144, 144);
-    padding: .5em;
-    font-family:'Bebas Neue', cursive;
+.game-card{
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 0 2px 5px 5px;
     text-align: center;
-    
 }
-.field-title{
-    text-align: center;
-    margin: .5em 0 .5em 0;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    padding: .5em 0 .5em 0;
-    
+.game-card-date{
+    font-size: 14px;
 }
-.field-subtitle{
-    width: fit-content;
-    padding-bottom: 1em;
-    text-indent: 5px;
-    padding: .5em;
-    background-color: whitesmoke;
-    text-align: center;
-    margin: auto;
-    
-}
-.line-up-roster{
-    box-shadow: 0px 4px 15px 11px white;
-    width: 100px;
-    margin: auto;
-    margin-bottom: 1em;
-}
-.line-up-roster-label{
-    text-align: center;
-    text-decoration: underline;
-}
-.line-up-roster > p{
-    padding: .25em;
+.game-card-image{
+    width: 100%
 }
 
-.field-pic{
-    border: 2px solid white;
-    max-width: 100%;
-    margin-top: 1em;
-    border-radius: 50%;
-    
-}
-#back-to-mainpage-button{
-    background-color: rgb(32, 30, 30);
-    width: fit-content;
-    padding: .5em;
-    text-decoration: none;
-    color: white;
-}
 
 
