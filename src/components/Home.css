@@ -16,16 +16,18 @@
     width: fit-content;
     border-radius: 9px;
     margin: auto;
-    padding-top: 4em
+    padding-top: 4em;
+    border-top: 2px solid white;
 }
 .Home-subtitle{
     width: fit-content;
     margin: auto;
     color: white;
     padding-bottom: 1em;
+    border-bottom: 2px solid white;
 }
 .Home-button{
-    padding: 1em 2em 1em 2em;
+    padding: .3em;
     font-size: 20px;
     border-radius: 15px;
     font-family: 'Bebas Neue', cursive;
@@ -35,6 +37,10 @@
     background-color: rgb(212, 110, 110);
     transform: scale(1.05);
     color: white;
+}
+.Home-next-game{
+    margin-bottom: 10px;
+    color: white
 }
 
 /* Intro/Description CSS below */

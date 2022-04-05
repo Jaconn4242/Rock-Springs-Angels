@@ -1,14 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { MainContext } from '../ContextProvider'
 import{useNavigate} from "react-router-dom"
 import "./Home.css"
 
 function Home() {
   let navigate = useNavigate()
+  const {gameData} = useContext(MainContext)
   return (
     <>
     <div className='Home-container'>
             <h1 className='Home-title'>Youth Softball League</h1>
             <h6 className='Home-subtitle'>-Rock Springs Baptist Church-</h6>
+            <h3 className='Home-next-game'>Next game: {gameData[0].location} </h3>
             <button onClick={() => {navigate("/gameschedule")}} className='Home-button'>VIEW GAME SCHEDULE</button>
     </div>
     <div className='intro-container'>
