@@ -14,7 +14,7 @@ function Home() {
     <div className='intro-container'>
         <h4 className='intro-title'>About our church</h4>
         <p className='intro-description'>At Rock Springs we are a Bible-centered church that teaches and preaches the Book, the Blood, and Blessed Hope of the return of our Lord and Savior Jesus Christ. God continues to bless our great fellowship exceedingly above all that we can ask or think. I extend an invitation to you and your family to join us this week for Bible Fellowship and worship.</p>
-        <img className="intro-picture" src="http://www.rochester-insurance.com/wp-content/uploads/2017/07/rsbc-arial-view-700.jpg" alt="" />
+        <img className="intro-picture" src="./aerial-photo.jpg" alt="" />
         <section className='intro-section'>
           <a href="https://www.google.com/maps/place/Rock+Springs+Baptist+Church/@34.8240444,-82.558935,15z/data=!3m1!4b1!4m5!3m4!1s0x885837ef0778fc87:0xab33bc30390ea85e!8m2!3d34.8240447!4d-82.5502017">Google Map</a><br/>
           <span>201 Rock Springs Road</span><br/>
