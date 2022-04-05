@@ -6,7 +6,7 @@ import "./NavBar.css"
 export default function NavBar() {
 
     const navigate = useNavigate()
-
+// FROM PROVIDER
     const {coachLogin} = useContext(MainContext)
     console.log(coachLogin)
 
@@ -22,13 +22,8 @@ export default function NavBar() {
     const [coachCredentials, setCoachCredentials] = useState({
         userName: "",
         password: ""
-    })
-
-// FROM PROVIDER
-    
-    
+    })   
  
-
 function handleChange(e){
     const {name, value} = e.target
     setCoachCredentials(prevState => ({...prevState, [name]:value}))

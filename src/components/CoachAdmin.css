@@ -6,5 +6,8 @@
     gap: 2em;
     flex-direction: row;
     justify-content: center;
-
+}
+.team-display{
+    text-align: center;
+    margin: 1em 0 1em 0;
 }
