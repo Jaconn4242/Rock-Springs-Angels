@@ -79,7 +79,8 @@ function handleSubmit(e){
                              onChange={handleChange}
             />
             <br />
-            <button>login</button>
+            <small className='forgot-username-password'>forgot username/password</small>
+            <button className='coach-login-button'>login</button>
         </div>
     </form>}
     </>
