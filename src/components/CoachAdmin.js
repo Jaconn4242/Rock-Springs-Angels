@@ -1,27 +1,37 @@
 import React, {useContext, useState} from 'react'
 import { MainContext } from '../ContextProvider'
+import PlayerCard from "./PlayerCard"
+import { v4 as uuidv4 } from "uuid";
 import "./CoachAdmin.css"
 
 function CoachAdmin() {
   // FROM PROVIDER
-  const {team} = useContext(MainContext)
+  const {team, gameData} = useContext(MainContext)
+ 
 
   const [showTeam, setShowTeam] = useState(false)
-
+  const [showGameData, setShowGameData] = useState(false)
   function displayTeam(e) {
     e.preventDefault()
-    setShowTeam(true)
+    setShowGameData(false)
+    setShowTeam(prevState => !prevState)
   }
+  function displayGameData(e) {
+    e.preventDefault()
+    setShowTeam(false)
+    setShowGameData(prevState => !prevState)
+  }
+  const gameScheduleData = gameData.map((game, i)=> {
+    return (
+      <div key={i} className="game-data-container">
+        <h3>Location: {game.location}</h3>
+        <h4>Time:{game.time}</h4>
+      </div>
+    )
+  })
 
   const teamElements = team.map((player, i) => {
-    if(!player.lastName){
-      player.lastName = ""
-    } 
-      return (
-        <div key={i}>
-          <input  type="text" defaultValue={`${player.firstName} ${player.lastName}`} />
-        </div>
-      )
+    return (<PlayerCard {...player} key={i} id={uuidv4()} />)
   })
     
   return (
@@ -30,13 +40,13 @@ function CoachAdmin() {
         <hr />
         <br />
         <div className='button-wrapper'>
-        <button>View/Edit Game Schedule</button>
+        <button onClick={displayGameData}>View/Edit Game Schedule</button>
         <button onClick={displayTeam}>View/Edit Team</button>
-        <button>View/Edit Snack Schedule</button>
         </div>
         <br />
         <hr />
-        {showTeam && <div className='team-display'>{teamElements}</div>}
+        {showTeam && <div>{teamElements}</div>}
+        {showGameData && <div>{gameScheduleData}</div>}
     </div>
   )
 }

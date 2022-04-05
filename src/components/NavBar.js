@@ -8,7 +8,6 @@ export default function NavBar() {
     const navigate = useNavigate()
 // FROM PROVIDER
     const {coachLogin} = useContext(MainContext)
-    console.log(coachLogin)
 
 // local state for dropdown menus(conditional rendering)
     const [menu, setMenu] = useState(false)
@@ -58,7 +57,7 @@ function handleSubmit(e){
         <Link className="menuLink" to="/aboutus">About us</Link>
         <Link className="menuLink" to="/team">Meet the Team!</Link>
         <Link  className="menuLink" to="/gameschedule">Game Schedule</Link>
-        <a className="coach-login-link" onClick={coachMenuDropdown}>Coach Login</a>
+        <button className="coach-login-link" onClick={coachMenuDropdown}>Coach Login</button>
     </div>}
     {coachLoginMenu && <form onSubmit={handleSubmit} className='coach-login-form'>
         <div className='form-container'>

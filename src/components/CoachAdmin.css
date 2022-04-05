@@ -7,7 +7,16 @@
     flex-direction: row;
     justify-content: center;
 }
+.button-wrapper > button{
+    padding: .5em;
+    font-weight: bold;
+}
 .team-display{
     text-align: center;
     margin: 1em 0 1em 0;
+}
+.game-data-container{
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 2px 5px ;
 }

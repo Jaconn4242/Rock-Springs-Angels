@@ -1,50 +1,80 @@
 const team = [
     {
+        id: "",
+        gender: "female",
         firstName: "Addy"
     },
     {
+        id: "",
+        gender: "female",
         firstName: "Abbi",
         lastName: "Conn"
     },
     {
+        id: "",
+        gender: "female",
         firstName: "Emma"
     },
     {
+        id: "",
+        gender: "female",
         firstName: "Jalyn"
     },
     {
+        id: "",
+        gender: "male",
         firstName: "Colton"
     },
     {
+        id: "",
+        gender: "male",
         firstName: "Cole"
     },
     {
+        id: "",
+        gender: "female",
         firstName: "Carys"
     },
     {
+        id: "",
+        gender: "female",
         firstName: "Mikaya"
     },
     {
+        id: "",
+        gender: "male",
         firstName: "Cadence"
     },
     {
+        id: "",
+        gender: "male",
         firstName: "Everitt"
     },
     {
+        id: "",
+        gender: "male",
         firstName: "Caleb"
     },
     {
+        id: "",
+        gender: "male",
         firstName: "David"
     },
     {
+        id: "",
+        gender: "female",
         firstName: "Savannah"
     },
     {
+        id: "",
+        gender: "male",
         firstName: "Weston",
         lastName: "J"
     },
     {
-        firstName: "Addy",
+        id: "",
+        gender: "male",
+        firstName: "Weston",
         lastName: "B"
     }
 ]

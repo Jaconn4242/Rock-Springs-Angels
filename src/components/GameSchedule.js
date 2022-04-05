@@ -1,33 +1,25 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {useNavigate} from "react-router-dom"
+import { MainContext } from '../ContextProvider'
 import "./GameSchedule.css"
 
 function GameSchedule() {
     let navigate = useNavigate()
+    const {team, gameData} = useContext(MainContext)
+
+    const battingLineUp = team.map((player, i) => {
+      return <div className='line-up-roster'>
+                <p>{i} --- {player.firstName}</p>
+            </div>
+    })
   return (
     <div className="Schedule">
-        <h1 className="field-title">Easley Sports Complex</h1>
-        <h3 className="field-subtitle">Date and time: TBD</h3>
-        <img src="https://lh3.googleusercontent.com/p/AF1QipP1bLK11YwZv4Dp2fseDpSaMvWPb5kXvzsAMlIP=s1600-w400" alt="" className="field-pic"></img>
+        <h1 className="field-title">{gameData[0].location}</h1>
+        <h3 className="field-subtitle">Date and Time: {gameData[0].time}</h3>
+        <img src={gameData[0].locationPicture} alt="" className="field-pic"></img>
         <h3 className="line-up-roster-label">Batting Line-up:</h3>
-        <ol className="line-up-roster">
-            <li>Addy</li>
-            <li>Abbi</li>
-            <li>Emma</li>
-            <li>Jalyn</li>
-            <li>Colton</li>
-            <li>Cole</li>
-            <li>Carys</li>
-            <li>Mikaya</li>
-            <li>Cadence</li>
-            <li>Everitt</li>
-            <li>Caleb</li>
-            <li>David</li>
-            <li>Savannah</li>
-            <li>Westin J.</li>
-            <li>Westin B.</li>
-        </ol>
-        <button onClick={() => {navigate("/")}}></button>
+        {battingLineUp}
+        <button onClick={() => {navigate("/")}}>Back to home</button>
 
 
     </div>

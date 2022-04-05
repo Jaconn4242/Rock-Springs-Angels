@@ -36,3 +36,29 @@
     transform: scale(1.05);
     color: white;
 }
+
+/* Intro/Description CSS below */
+
+.intro-container{
+    font-size: 20px;
+    box-shadow: 0 2px 5px 5px lightgray;
+    margin: .5em;
+    padding: .5em;
+}
+.intro-title{
+    font-family: 'Bebas Neue', cursive;
+    margin-bottom: 0;
+    text-align: center;
+}
+.intro-description{
+    margin-top: 5px;
+    text-align: center;
+}
+.intro-picture{
+    width: 100%
+}
+.intro-section{
+    margin-top: 1em;
+    margin-bottom: .5em;
+    line-height: 1.5;
+}
