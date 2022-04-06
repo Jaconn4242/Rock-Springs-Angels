@@ -10,6 +10,12 @@
 .game-card-image{
     width: 100%
 }
+.game-card-links{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
 
 
 

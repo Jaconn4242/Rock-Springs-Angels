@@ -1,12 +1,19 @@
 .team-image-wrapper{
     text-align: center;
     margin-top: .5em;
+    width: 100%
 }
 .group-picture{
     margin: auto;
     width: 90%;
-    height: fit-content;
+    border-radius: 20%;
+    border: 2px solid black
 }
-.team-name-list{
+.list-label{
+    font-weight: bold;
+    
+}
+.list-of-players{
     columns: 2;
+    margin-bottom: 1em;
 }

@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import GameSchedule from "./components/GameSchedule";
-import AboutUs from "./components/AboutUs";
 import Team from "./components/Team";
 import ErrorPg from "./components/ErrorPg";
 import CoachAdmin from "./components/CoachAdmin";
@@ -21,7 +20,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/gameschedule" element={<GameSchedule />} />
-        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/team" element={<Team />} />
         <Route path="/coachadmin" element={<CoachAdmin />} />
         <Route path="/nextgame" element={<NextGame />} />

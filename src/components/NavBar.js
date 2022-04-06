@@ -54,7 +54,6 @@ function handleSubmit(e){
     </header>
     {menu && <div className='dropDownMenu'>
         <Link className="menuLink" to="/">Home</Link>
-        <Link className="menuLink" to="/aboutus">About us</Link>
         <Link className="menuLink" to="/team">Meet the Team!</Link>
         <Link  className="menuLink" to="/gameschedule">Game Schedule</Link>
         <button className="coach-login-link" onClick={coachMenuDropdown}>Coach Login</button>

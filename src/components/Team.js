@@ -15,8 +15,8 @@ function Team() {
     <div className='team-image-wrapper'>
         <img className='group-picture' src="https://i.pinimg.com/originals/73/c6/47/73c64700f8c685ed297b74aaffac8efd.jpg" alt="" />
     </div>
-    <label><b>Players are ordered left to right</b></label>
-    {teamElements}
+    <p className='list-label'>Players are ordered left to right</p>
+    <div className='list-of-players'>{teamElements}</div>
     </>
   )
 }

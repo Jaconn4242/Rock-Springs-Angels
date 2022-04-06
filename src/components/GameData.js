@@ -3,6 +3,7 @@ const gameScheduleData = [
             location: "JB Red Owens Ballfield",
             locationPicture: "https://lh3.googleusercontent.com/p/AF1QipP1bLK11YwZv4Dp2fseDpSaMvWPb5kXvzsAMlIP=s1600-w400",
             googleMaps: "https://www.google.com/maps/place/JB+Owens+Sports+Complex/@34.8043461,-82.5956823,15z/data=!3m1!4b1!4m5!3m4!1s0x885847dcf0602a03:0x148545c27d30956!8m2!3d34.8043288!4d-82.586949",
+            nextGame: true,
             time: "TBD"
         },
         {
