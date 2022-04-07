@@ -23,8 +23,12 @@ function editGameCard(e) {
 }
 function saveNewEdit(e){
     e.preventDefault()
+    if(!newInput.imgUrl || !newInput.title || !newInput.description){
+        alert("Sorry Coach! Image field must not be empty, here's an image you can copy for now: \n https://athletics.geneva.edu/images/2020/10/5/DJI_0051_Updated.jpg")
+    } else {
     updateGameCard(props._id, newInput)
     setEditing(false)
+   }
 }
 function handleDelete(e) {
     e.preventDefault()
@@ -32,36 +36,46 @@ function handleDelete(e) {
 }
 
   return (
-        <div className="game-data-container">
-            {!editing && <h3>Location: {title}</h3>}
-             {editing && <input type="text"
+      <>
+{!editing && <div className="game-card-container">
+                <h4 className='game-card-title-label'>Location:</h4>
+                <h4 className='game-card-title'>{title}</h4>
+                <h4 className='game-card-description-label'>Time and Date:</h4>
+                <h4 className='game-card-description'>{description}</h4>
+                <img className="game-image" src={imgUrl} alt="" />
+                <button className='game-card-edit-button' onClick={editGameCard}>Edit</button>
+                <button className='game-card-delete-button' onClick={handleDelete}>Delete</button> 
+             </div>}
+
+{editing && <div className='game-card-editing-container'>
+                <label>Location:</label>
+                <input type="text"
                                 className='edit-input-title'
                                 name="title"
                                 placeholder={title}
                                 onChange={handleChange} 
                                 value={newInput.title}
-                                />}
-            {!editing && <h4>Time: {description}</h4>}
-             {editing && <input type="text"
+                                />
+                <label>Time and Date:</label>
+                <input type="text"
                                 className='edit-input-description'
                                 name="description"
                                 placeholder={description}
                                 onChange={handleChange} 
                                 value={newInput.description}
-                        />}
-            {!editing && <img className="game-image" src={imgUrl} alt="" />}
-             {editing && <div className='edit-img-container'>
-                            <input  type="text"
-                                    className='edit-input-description'
-                                    name="imgUrl"
-                                    placeholder={imgUrl}
-                                    onChange={handleChange}  
-                                    value={newInput.imgUrl}/>
-                        </div>}
-            {!editing && <button onClick={editGameCard}>Edit</button> }
-             {editing && <button onClick={saveNewEdit}className="save-button">Save</button>}
-            <button onClick={handleDelete}>Delete</button>
-        </div>
+                                />
+                <label>Image Url:</label>
+                <input  type="text"
+                                className='edit-input-imgUrl'
+                                name="imgUrl"
+                                placeholder={imgUrl}
+                                onChange={handleChange}  
+                                value={newInput.imgUrl}
+                                />
+            <button onClick={saveNewEdit}className="save-button">Save</button>
+            <button className='game-card-delete-button-editing' onClick={handleDelete}>Delete</button>
+        </div>}
+    </>
   )
 }
 

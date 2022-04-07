@@ -39,7 +39,8 @@ function CoachAdmin() {
   function updateGameCard(id, newInput) {
     let updates = {
       title: newInput.title,
-      description: newInput.description
+      description: newInput.description,
+      imgUrl: newInput.imgUrl
     }
     axios.put(`https://api.vschool.io/RSA/thing/${id}`, updates)
     .then(res => console.log(res.data))
@@ -53,7 +54,8 @@ function CoachAdmin() {
     axios.delete(`https://api.vschool.io/RSA/thing/${id}`)
     .then(res => console.log(res.data))
     .then(err => console.log(err))
-    setApiGameData(prevData => prevData.filter(game => (game.id !== id)))
+
+    setApiGameData(apiGameData.filter(thing => (thing._id !== id)))
   }
 // Local Conditional Rendering
   function addNewGame(){
@@ -74,10 +76,10 @@ function CoachAdmin() {
       description: newGameInput.description,
       imgUrl: newGameInput.imgUrl
     }
-
     axios.post("https://api.vschool.io/RSA/thing/", newGame)
-    .then(res => console.log(res.data))
+    .then(res => setApiGameData(prevData => ([...prevData, res.data])))
     .then(err => console.log(err))
+
     setShowAddGameInput(false)
   }
   // Mapping through API and returning GameCard component passing props

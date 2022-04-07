@@ -16,19 +16,7 @@
     text-align: center;
     margin: 1em 0 1em 0;
 }
-.game-data-container{
-    position: relative;
-    padding: 1em;
-    margin: 1em;
-    box-shadow: 0 2px 5px ;
-}
-.game-image{
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    width: 40%;
-    height: 80%;
-}
+
 .new-game-input{
     display: flex;
     flex-direction: column;
