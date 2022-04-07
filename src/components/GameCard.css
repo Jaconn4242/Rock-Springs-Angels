@@ -1,0 +1,15 @@
+
+.edit-input-title{
+    position: relative;
+    padding: 1em;
+}
+.edit-input-description{
+    grid-column: 1 / 2;
+    padding: 1em;
+}
+.edit-img-container{
+    display: inline;
+}
+.save-button{
+    display: block;
+}

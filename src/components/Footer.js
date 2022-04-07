@@ -4,8 +4,9 @@ import "./Footer.css"
 export default function Footer() {
   return (
     <div className='Footer'>
-        <h5 className='Footer-company-name'>CCC, </h5>
-        <small className='Footer-copyright'> Copyright @ 2022 All Rights Reserved</small>
+        <small>Copyright </small>
+        <img className='copyright-logo' src="./Copyright-logo.png" alt="" />
+        <span>2022 <span className='company-name'><b>C</b>onns<b>C</b>lean<b>C</b>oding</span></span> 
     </div>
   )
 }

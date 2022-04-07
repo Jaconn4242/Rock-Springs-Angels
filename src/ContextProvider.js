@@ -1,23 +1,30 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import TeamData from "./components/TeamData"
 import GameData from "./components/GameData"
-
+import axios from "axios"
 
 const MainContext = React.createContext()
 
 const ContextProvider = (props) => {
-console.log(GameData)
+    
 // Global State Variables
+
     const [coachLogin, setCoachLogin] = useState({
         id: 1,
         userName: "JeffConn88",
         password: "Bledsoe"
     })
 
+const [apiGameData, setApiGameData] = useState([])
+useEffect(() => {
+    axios.get("https://api.vschool.io/RSA/thing")
+    .then(res => setApiGameData(res.data))
+    .then(err => console.log(err))
+}, [])
+
+
 
     const [team, setTeam] = useState(TeamData)
-    console.log(team)
-
     const [gameData, setGameData] = useState(GameData)
 
     return (
@@ -25,6 +32,8 @@ console.log(GameData)
             coachLogin, 
             team, 
             gameData, 
+            apiGameData,
+            setApiGameData,
             setCoachLogin,
             setTeam,
             setGameData

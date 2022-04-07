@@ -1,8 +1,15 @@
 .Footer{
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
     background-color: grey;
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family:'Bebas Neue', cursive;
+    padding: 1em;
+}
+.copyright-logo{
+    height: 20px;
+    width: 20px;
+}
+.company-name{
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }

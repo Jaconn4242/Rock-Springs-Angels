@@ -23,7 +23,7 @@ function Home() {
           <span>201 Rock Springs Road</span><br/>
           <span>Easley, SC 29642 United States</span><br/>
           <span>(864) 859-9854</span><br/>
-          <a href="http://www.rockspringsbaptist.com/">http://www.rockspringsbaptist.com/</a>
+          <button href="http://www.rockspringsbaptist.com/" className='intro-church-link'>http://www.rockspringsbaptist.com/</button>
         </section>
     </div>
     </>

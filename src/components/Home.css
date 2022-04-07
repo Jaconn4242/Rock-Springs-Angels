@@ -3,7 +3,7 @@
     border-left:3px solid black;
     border-right:3px solid black;
     border-bottom:3px solid black;
-    height: 570px;
+    height: 600px;
     background-color: rgba(73, 80, 87, 1);
         background: url(https://d2jqoimos5um40.cloudfront.net/site_0051/94e41.png);
         background-position: center;
@@ -68,6 +68,12 @@
     margin-bottom: .5em;
     line-height: 1.5;
 }
-.intro-section > a{
-    width: fit-content;
+.intro-church-link{
+   background: none;
+   border: none;
+   text-decoration: underline;
+   color: blue;
+   font-size: 11px;
+   width: 50%
+   
 }

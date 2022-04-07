@@ -17,7 +17,7 @@ function NextGame() {
             <img  className="game-details-picture" src={gameData[0].locationPicture} alt="" />
         </div>
             <ol className='batting-line-up-container'>
-                {team.map(player => <li className='batting-line-up'>{player.firstName} {player.lastName}</li>)}
+                {team.map((player, i) => <li key={i} className='batting-line-up'>{player.firstName} {player.lastName}</li>)}
             </ol>
         </>
   )

@@ -6,8 +6,8 @@ import "./Team.css"
 
 function Team() {
 
-    const teamElements = TeamData.map(player => {
-        return <li>{player.firstName}</li>
+    const teamElements = TeamData.map((player, i) => {
+        return <li key={i}>{player.firstName}</li>
     })
 
   return (

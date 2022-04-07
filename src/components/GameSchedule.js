@@ -1,23 +1,19 @@
 import React, {useContext} from 'react'
-import {Link} from "react-router-dom"
 import { MainContext } from '../ContextProvider'
 import "./GameSchedule.css"
 
 function GameSchedule() {
-   
-    const {gameData} = useContext(MainContext)
-
-    const gameCards = gameData.map((game, i) => {
-      return <div className='game-card'>
+  // gmaeData holds googlemaps link and next game boolean
+  // apiGameData hold title(location), description(time), and imgUrl(location-picture) 
+    const {apiGameData} = useContext(MainContext)
+    console.log(apiGameData)
+    const gameCards = apiGameData.map((game, i) => {
+      return  <div className='game-card' key={game._id}>
                 <hr />
-                <h3 className='game-card-title'>{game.location}
-                <p className='game-card-date'>Date: {game.time}</p></h3><hr />
-                <img className='game-card-image' src={game.locationPicture} alt="" />
-                <div className='game-card-links'>
-                  <a href={game.googleMaps}>Get Directions</a>
-                  {game.nextGame && <Link to="/nextgame" >View details</Link>}
-                </div>
-            </div>
+                <h3 className='game-card-title'>{game.title}
+                <p className='game-card-date'>Date: {game.description}</p></h3><hr />
+                <img className='game-card-image' src={game.imgUrl} alt="" />
+              </div>
     })
   return (
     <>
