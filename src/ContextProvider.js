@@ -16,10 +16,18 @@ const ContextProvider = (props) => {
     })
 
 const [apiGameData, setApiGameData] = useState([])
+const [lineUpData, setLineUpData] = useState([])
+
 useEffect(() => {
     axios.get("https://api.vschool.io/RSA/thing")
     .then(res => setApiGameData(res.data))
-    .then(err => console.log(err))
+    .then(err => console.log("this is good:",err))
+}, [])
+
+ useEffect(() => {
+    axios.get("https://api.vschool.io/RSALine-Up/thing")
+    .then(res => setLineUpData(res.data))
+    .then(err => console.log("this is good",err))
 }, [])
 
 
@@ -33,6 +41,8 @@ useEffect(() => {
             team, 
             gameData, 
             apiGameData,
+            lineUpData,
+            setLineUpData,
             setApiGameData,
             setCoachLogin,
             setTeam,

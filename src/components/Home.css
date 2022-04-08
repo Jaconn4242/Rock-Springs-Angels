@@ -74,6 +74,5 @@
    text-decoration: underline;
    color: blue;
    font-size: 11px;
-   width: 50%
-   
+   width: fit-content
 }

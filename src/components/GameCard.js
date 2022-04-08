@@ -25,6 +25,7 @@ function saveNewEdit(e){
     e.preventDefault()
     updateGameCard(props._id, newInput)
     setEditing(false)
+    
 }
 function handleDelete(e) {
     e.preventDefault()

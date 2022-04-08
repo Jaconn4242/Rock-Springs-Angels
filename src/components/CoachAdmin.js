@@ -1,15 +1,15 @@
 import React, {useContext, useState} from 'react'
 import { MainContext } from '../ContextProvider'
 import PlayerCard from "./PlayerCard"
-import { v4 as uuidv4 } from "uuid";
 import axios from "axios"
 import "./CoachAdmin.css"
 import GameCard from './GameCard';
 
 function CoachAdmin() {
+
 // FROM PROVIDER
-  const {team, apiGameData, setApiGameData} = useContext(MainContext)
-  console.log(apiGameData)
+  const {apiGameData, setApiGameData,lineUpData} = useContext(MainContext)
+
 
 // Local State used for conditional rendering
   const [showTeam, setShowTeam] = useState(false)
@@ -55,10 +55,11 @@ function CoachAdmin() {
   function deleteGameCard(id){
 
     axios.delete(`https://api.vschool.io/RSA/thing/${id}`)
-    .then(res => console.log(res.data))
+    .then(res => {
+      console.log(res.data)
+      setApiGameData(apiGameData.filter(thing => (thing._id !== id)))
+    })
     .then(err => console.log(err))
-
-    setApiGameData(apiGameData.filter(thing => (thing._id !== id)))
   }
 // Local Conditional Rendering
   function addNewGame(){
@@ -71,15 +72,16 @@ function CoachAdmin() {
     const {name, value} = e.target
     setNewGameInput(prevInput => ({...prevInput, [name]:value}))
   }
-
+  
   // grabs the image file and sets state
-    function fileSelectHandler(e) {
+  function fileSelectHandler(e) {
       setSelectedFile(e.target.files[0])
     }
 
 // onClick of submit button, new game info is added to state and api data via post request and setter function
   function submitGameInput(e){
     e.preventDefault()
+    alert(`Selected file - ${selectedFile.name}`)
     let newGame = {
       title: newGameInput.title,
       description: newGameInput.description,
@@ -91,11 +93,20 @@ function CoachAdmin() {
 
     setShowAddGameInput(false)
   }
-console.log(selectedFile)
-
-// When add file is clicked the img url is set to state.
   
-
+  function sortByAge(lineUpData){
+        let ageSort = lineUpData.sort((a, b) => {
+          
+            if(Number(a.age) < Number(b.age)){
+                return 1
+            }
+            if(Number(a.age) > Number(b.age)){
+                return -1
+            }
+            return 0
+        })
+      return ageSort
+    }
 
   // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNJzy_obFCMMafjbKBXU86hFFOq8_FOqhuHQ&usqp=CAU
   // Mapping through API and returning GameCard component passing props
@@ -103,9 +114,13 @@ console.log(selectedFile)
     return <GameCard key={i} {...game} updateGameCard={updateGameCard} deleteGameCard={deleteGameCard}/>
   })
   // Maps through Team Data file and returns player card component
-  const teamElements = team.map((player, i) => {
-    return (<PlayerCard {...player} key={i} id={uuidv4()} />)
+  const teamElements = lineUpData.map((player, i) => {
+    return (<PlayerCard {...player} key={i} sortByAge={sortByAge}/>)
   })
+  // Sorts through lineUpData and keeps batting line-up in order from 1 -14
+
+
+  
 
     
   return (

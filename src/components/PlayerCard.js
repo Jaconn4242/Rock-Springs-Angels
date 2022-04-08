@@ -1,19 +1,21 @@
-import React, {useContext, useState} from 'react'
-import { MainContext } from '../ContextProvider'
+import React, {useState} from 'react'
 import "./PlayerCard.css"
 
 function PlayerCard(props) {
-  // props from coachAdmin.js
-  const {firstName, lastName, id, gender} = props
-  
-  
-  // FROM PROVIDER
-  const {team} = useContext(MainContext)
+// PROPS FROM COACHADMIN.JS
+// title=players name
+// description=gender
+// imgUrl = batting order placement
+  const {title, description, imgUrl} = props
+
+// Local state for condition rendering
   const [editing, setEditing] = useState(false)
+
+// Local state for grabbing newInput
   const [newInput, setNewInput] = useState({
-    firstName: ""
+    title: ""
   })
-  console.log("newinput",newInput)
+  
 
   function onChange(e){
     const {name,value} = e.target
@@ -24,26 +26,26 @@ function PlayerCard(props) {
     e.preventDefault()
     setEditing(true)
   }
-  console.log(team)
+ 
   function handleSave(e) {
     e.preventDefault()
-    setNewInput(prevInput => ({...prevInput, id: id }))
     setEditing(false)
   }
 
     return (
     <div className='player-card'>
-        {!editing && <h3>{firstName} {lastName}</h3>}
-        {editing && <input placeholder={firstName} 
+        {!editing && <h3>{title}</h3>}
+        {editing && <input placeholder={title} 
                            name="firstName" 
-                           value={newInput.firstName}
+                           value={newInput.title}
                            onChange={onChange}
                            />}
         {!editing && <button onClick={toggle}>edit</button>}
         {editing && <button onClick={handleSave}>save</button>}
         <button>delete</button>
-        {gender === "male" ? <img src="./Male-player-icon.png" alt="" className='gender-icon-male'/>: 
+        {description === "male" ? <img src="./Male-player-icon.png" alt="" className='gender-icon-male'/>: 
                              <img src="./Female-player-icon.png" alt="" className='gender-icon-female'/>}
+        <p className='batting-order-placement'>{imgUrl}</p>
     </div>
   )
 }
