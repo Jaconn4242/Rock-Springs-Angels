@@ -37,11 +37,13 @@ function CoachAdmin() {
   }
 // id and newInput from GameCard component
   function updateGameCard(id, newInput) {
+    
     let updates = {
       title: newInput.title,
       description: newInput.description,
       imgUrl: newInput.imgUrl
     }
+    
     axios.put(`https://api.vschool.io/RSA/thing/${id}`, updates)
     .then(res => console.log(res.data))
     .then(err => console.log(err))

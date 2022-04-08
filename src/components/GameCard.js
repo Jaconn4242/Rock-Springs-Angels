@@ -23,12 +23,8 @@ function editGameCard(e) {
 }
 function saveNewEdit(e){
     e.preventDefault()
-    if(!newInput.imgUrl || !newInput.title || !newInput.description){
-        alert("Sorry Coach! Image field must not be empty, here's an image you can copy for now: \n https://athletics.geneva.edu/images/2020/10/5/DJI_0051_Updated.jpg")
-    } else {
     updateGameCard(props._id, newInput)
     setEditing(false)
-   }
 }
 function handleDelete(e) {
     e.preventDefault()

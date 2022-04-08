@@ -1,19 +1,24 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useRef} from 'react'
 import { MainContext } from '../ContextProvider'
 import {Link, useNavigate} from "react-router-dom"
+import useClickOutside from "./useClickOutside"
 import "./NavBar.css"
 
 export default function NavBar() {
-
+// useRef from useClickOutside.js to handle clickaway from navbar menu dropdown
+    const ref = useRef(null)
+    useClickOutside(ref, () =>  {
+        setMenu(false)
+        setCoachLoginMenu(false)
+    });
+// navigate used below to take coach to admin page upon login success
     const navigate = useNavigate()
 // FROM PROVIDER
     const {coachLogin} = useContext(MainContext)
 
 // local state for dropdown menus(conditional rendering)
     const [menu, setMenu] = useState(false)
-    function menuDropdown() {
-        setMenu(prevState => !prevState)
-    }
+    
     const [coachLoginMenu, setCoachLoginMenu] = useState(false)
     function coachMenuDropdown() {
         setCoachLoginMenu(prevState => !prevState)
@@ -44,15 +49,16 @@ function handleSubmit(e){
 }
 
   return (
-      <>
-    <header className='header'>
+      <div ref={ref}>
+    <header  className='header'>
         <img src="./NavLogo.png" 
             alt=''
             className='Header-logo'
-            onClick={menuDropdown} />
+            onClick={() => setMenu(!menu)}
+            />
         <h1 className='Header-title'>Rock Spring's Angels</h1>
     </header>
-    {menu && <div className='dropDownMenu'>
+    {menu && <div  className='dropDownMenu'>
         <Link className="menuLink" to="/">Home</Link>
         <Link className="menuLink" to="/team">Meet the Team!</Link>
         <Link  className="menuLink" to="/gameschedule">Game Schedule</Link>
@@ -64,19 +70,19 @@ function handleSubmit(e){
                             name="userName"
                             value={coachCredentials.userName}
                             onChange={handleChange}
-            />
+                            />
             <br />
             Password: <input type="password" 
                              name="password"
                              value={coachCredentials.password}
                              onChange={handleChange}
-            />
+                             />
             <br />
             <small className='forgot-username-password'>forgot username/password</small>
             <button className='coach-login-button'>login</button>
         </div>
     </form>}
-    </>
+    </div>
   )
 }
 
