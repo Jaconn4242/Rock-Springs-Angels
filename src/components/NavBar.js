@@ -59,9 +59,9 @@ function handleSubmit(e){
         <h1 className='Header-title'>Rock Spring's Angels</h1>
     </header>
     {menu && <div  className='dropDownMenu'>
-        <Link className="menuLink" to="/">Home</Link>
-        <Link className="menuLink" to="/team">Meet the Team!</Link>
-        <Link  className="menuLink" to="/gameschedule">Game Schedule</Link>
+        <Link onClick={() => setMenu(false)} className="menuLink" to="/">Home</Link>
+        <Link onClick={() => setMenu(false)} className="menuLink" to="/team">Meet the Team!</Link>
+        <Link onClick={() => setMenu(false)} className="menuLink" to="/gameschedule">Game Schedule</Link>
         <button className="coach-login-link" onClick={coachMenuDropdown}>Coach Login</button>
     </div>}
     {coachLoginMenu && <form onSubmit={handleSubmit} className='coach-login-form'>

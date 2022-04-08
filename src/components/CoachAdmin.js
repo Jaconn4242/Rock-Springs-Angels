@@ -22,7 +22,8 @@ function CoachAdmin() {
     description: "",
     imgUrl: ""
   })
-
+// Local State used for holding file/image upload
+  const [selectedFile, setSelectedFile] = useState({})
 // Local Conditional Rendering
   function displayTeam(e) {
     e.preventDefault()
@@ -37,7 +38,7 @@ function CoachAdmin() {
   }
 // id and newInput from GameCard component
   function updateGameCard(id, newInput) {
-    
+
     let updates = {
       title: newInput.title,
       description: newInput.description,
@@ -71,12 +72,18 @@ function CoachAdmin() {
     setNewGameInput(prevInput => ({...prevInput, [name]:value}))
   }
 
+  // grabs the image file and sets state
+    function fileSelectHandler(e) {
+      setSelectedFile(e.target.files[0])
+    }
+
+// onClick of submit button, new game info is added to state and api data via post request and setter function
   function submitGameInput(e){
     e.preventDefault()
     let newGame = {
       title: newGameInput.title,
       description: newGameInput.description,
-      imgUrl: newGameInput.imgUrl
+      imgUrl: selectedFile.name
     }
     axios.post("https://api.vschool.io/RSA/thing/", newGame)
     .then(res => setApiGameData(prevData => ([...prevData, res.data])))
@@ -84,6 +91,13 @@ function CoachAdmin() {
 
     setShowAddGameInput(false)
   }
+console.log(selectedFile)
+
+// When add file is clicked the img url is set to state.
+  
+
+
+  // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNJzy_obFCMMafjbKBXU86hFFOq8_FOqhuHQ&usqp=CAU
   // Mapping through API and returning GameCard component passing props
   const gameScheduleData = apiGameData.map((game, i)=> {
     return <GameCard key={i} {...game} updateGameCard={updateGameCard} deleteGameCard={deleteGameCard}/>
@@ -118,12 +132,13 @@ function CoachAdmin() {
                                        value={newGameInput.description}
                                        onChange={handleChange}
                                        />
-           Ballfield Image Url: <input type="text"
+           Ballfield Image Url: <input type="file"
+                                       className='choose-file-button'
                                        name="imgUrl"
                                        value={newGameInput.imgUrl}
-                                       onChange={handleChange}
+                                       onChange={fileSelectHandler}
                                        />
-                                 <button onClick={submitGameInput} >Submit</button>                  
+                                 <button className='submit-button' onClick={submitGameInput} >Submit</button>                  
                              </fieldset> }
         {showTeam && <div>{teamElements}</div>}
         {showGameData && <div>{gameScheduleData}</div>}

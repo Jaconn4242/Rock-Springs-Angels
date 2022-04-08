@@ -16,11 +16,20 @@
     text-align: center;
     margin: 1em 0 1em 0;
 }
-
 .new-game-input{
     display: flex;
     flex-direction: column;
     border: 2px solid black;
     padding: 1em;
     margin: 2em;
+}
+.new-game-input > input{
+    border: 1px solid black;
+    margin: .25em
+}
+.submit-button{
+    margin-top: 1em;
+}
+.choose-file-button{
+    width: 60%;
 }
