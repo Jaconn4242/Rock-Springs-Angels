@@ -30,6 +30,21 @@ useEffect(() => {
     .then(err => console.log("this is good",err))
 }, [])
 
+function sortByAge(lineUpData){
+    let sortedPlayers = lineUpData.sort((a, b) => {
+      
+        if(parseInt(a.imgUrl) < parseInt(b.imgUrl)){
+            return -1
+        }
+        if(parseInt(a.imgUrl) > parseInt(b.imgUrl)){
+            return 1
+        }
+        return 0
+    })
+    console.log("clicked")
+    return sortedPlayers
+}
+
 
 
     const [team, setTeam] = useState(TeamData)
@@ -42,6 +57,7 @@ useEffect(() => {
             gameData, 
             apiGameData,
             lineUpData,
+            sortByAge,
             setLineUpData,
             setApiGameData,
             setCoachLogin,

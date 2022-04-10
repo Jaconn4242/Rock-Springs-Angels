@@ -6,17 +6,17 @@ function PlayerCard(props) {
 // title=players name
 // description=gender
 // imgUrl = batting order placement
-  const {title, description, imgUrl} = props
+  const {title, description, imgUrl, updatePlayerCard, deletePlayerCard } = props
 
 // Local state for condition rendering
   const [editing, setEditing] = useState(false)
 
 // Local state for grabbing newInput
   const [newInput, setNewInput] = useState({
-    title: ""
+    // title: "",
+    imgUrl: ""
   })
   
-
   function onChange(e){
     const {name,value} = e.target
     setNewInput(prevInput => ({...prevInput, [name]: value}))
@@ -27,26 +27,56 @@ function PlayerCard(props) {
     setEditing(true)
   }
  
-  function handleSave(e) {
+  function handleDelete(e) {
     e.preventDefault()
-    setEditing(false)
-  }
+    deletePlayerCard(props._id)
+}
+
+function handleSave(e) {
+  e.preventDefault()
+  updatePlayerCard(props._id, newInput)
+  setEditing(false)
+}
+  // function sortByAge(lineUpData){
+  //       let sortedPlayers = lineUpData.sort((a, b) => {
+          
+  //           if(Number(a.imgUrl) < Number(b.imgUrl)){
+  //               return -1
+  //           }
+  //           if(Number(a.imgUrl) > Number(b.imgUrl)){
+  //               return 1
+  //           }
+  //           return 0
+  //       })
+  //       return sortedPlayers
+  //   }
+
 
     return (
-    <div className='player-card'>
-        {!editing && <h3>{title}</h3>}
-        {editing && <input placeholder={title} 
-                           name="firstName" 
-                           value={newInput.title}
-                           onChange={onChange}
-                           />}
-        {!editing && <button onClick={toggle}>edit</button>}
-        {editing && <button onClick={handleSave}>save</button>}
-        <button>delete</button>
-        {description === "male" ? <img src="./Male-player-icon.png" alt="" className='gender-icon-male'/>: 
+    <>
+        {!editing && <div className='player-card'>
+          <h3>{title}</h3>
+          <button onClick={toggle}>edit</button>
+          <button onClick={handleDelete}>delete</button>
+          {description === "male" ? <img src="./Male-player-icon.png" alt="" className='gender-icon-male'/>: 
                              <img src="./Female-player-icon.png" alt="" className='gender-icon-female'/>}
-        <p className='batting-order-placement'>{imgUrl}</p>
-    </div>
+          <p className='batting-order-placement'>{imgUrl}</p>
+        </div>}
+
+        {editing && <div className='editing-container'>
+          {/* <input placeholder={title} 
+                 name="title" 
+                 value={newInput.title}
+                 onChange={onChange}
+                 /> */}
+          <input placeholder={title} 
+                 name="imgUrl" 
+                 value={newInput.imgUrl}
+                 onChange={onChange}
+                 />
+        <button onClick={handleSave}>save</button>
+        </div>}
+    </>
   )
 }
 

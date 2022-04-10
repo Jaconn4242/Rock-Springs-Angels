@@ -8,7 +8,7 @@ import GameCard from './GameCard';
 function CoachAdmin() {
 
 // FROM PROVIDER
-  const {apiGameData, setApiGameData,lineUpData} = useContext(MainContext)
+  const {apiGameData, setApiGameData, lineUpData, setLineUpData, sortByAge} = useContext(MainContext)
 
 
 // Local State used for conditional rendering
@@ -36,7 +36,7 @@ function CoachAdmin() {
     setShowTeam(false)
     setShowGameData(prevState => !prevState)
   }
-// id and newInput from GameCard component
+// id and newInput from GameCard component(complete)
   function updateGameCard(id, newInput) {
 
     let updates = {
@@ -51,7 +51,26 @@ function CoachAdmin() {
 
     setApiGameData(prevData => prevData.map(game => (game._id === id) ? {...game, title: newInput.title, description: newInput.description, imgUrl: newInput.imgUrl}: game))
   }
-// id from GameCard component
+// id and newInput from PlayerCard component(complete) 
+  function updatePlayerCard(id, newInput) {
+  //  title here is referring to first and last name of player
+  //  imgUrl here is referring to batting line-up number for that player
+    let updates = {
+      // title: newInput.title,
+      imgUrl: newInput.imgUrl
+    }
+    
+    axios.put(`https://api.vschool.io/RSALine-Up/thing/${id}`, updates)
+    .then(res => {
+      console.log(res.data)
+      setLineUpData(prevData => prevData.map(player => (player._id === id) ? {...player, /*title: newInput.title,*/ imgUrl: newInput.imgUrl}: player))
+    })
+    .then(err => console.log(err))
+
+    
+  }
+
+// id from GameCard component(Complete)
   function deleteGameCard(id){
 
     axios.delete(`https://api.vschool.io/RSA/thing/${id}`)
@@ -61,6 +80,17 @@ function CoachAdmin() {
     })
     .then(err => console.log(err))
   }
+// id from PlayerCard component(Complete)
+  function deletePlayerCard(id){
+
+    axios.delete(`https://api.vschool.io/RSALine-Up/thing/${id}`)
+    .then(res => {
+      console.log(res.data)
+      setLineUpData(lineUpData.filter(player => (player._id !== id)))
+    })
+    .then(err => console.log(err))
+  }
+
 // Local Conditional Rendering
   function addNewGame(){
     setShowTeam(false)
@@ -78,7 +108,7 @@ function CoachAdmin() {
       setSelectedFile(e.target.files[0])
     }
 
-// onClick of submit button, new game info is added to state and api data via post request and setter function
+// onClick of local submit button, new game info is added to state and api data via post request and setter function
   function submitGameInput(e){
     e.preventDefault()
     alert(`Selected file - ${selectedFile.name}`)
@@ -93,20 +123,6 @@ function CoachAdmin() {
 
     setShowAddGameInput(false)
   }
-  
-  function sortByAge(lineUpData){
-        let ageSort = lineUpData.sort((a, b) => {
-          
-            if(Number(a.age) < Number(b.age)){
-                return 1
-            }
-            if(Number(a.age) > Number(b.age)){
-                return -1
-            }
-            return 0
-        })
-      return ageSort
-    }
 
   // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNJzy_obFCMMafjbKBXU86hFFOq8_FOqhuHQ&usqp=CAU
   // Mapping through API and returning GameCard component passing props
@@ -114,10 +130,11 @@ function CoachAdmin() {
     return <GameCard key={i} {...game} updateGameCard={updateGameCard} deleteGameCard={deleteGameCard}/>
   })
   // Maps through Team Data file and returns player card component
-  const teamElements = lineUpData.map((player, i) => {
-    return (<PlayerCard {...player} key={i} sortByAge={sortByAge}/>)
+  
+  const teamElements = lineUpData.map((player, i) => { 
+    return (<PlayerCard {...player} key={i} updatePlayerCard={updatePlayerCard} deletePlayerCard={deletePlayerCard} />)
   })
-  // Sorts through lineUpData and keeps batting line-up in order from 1 -14
+  
 
 
   
