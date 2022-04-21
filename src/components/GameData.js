@@ -1,6 +1,6 @@
 const gameScheduleData = [
         {
-            location: "JB Red Owens Ballfield",
+            location: "Mt.Tabor",
             locationPicture: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cityofeasley.com%2Fdepartments%2Frecreation%2Fnew.php&psig=AOvVaw3YfLMHwSNwx_O1qnZ0GAee&ust=1649446595112000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCPC7887ZgvcCFQAAAAAdAAAAABAD",
             googleMaps: "https://www.google.com/maps/place/JB+Owens+Sports+Complex/@34.8043461,-82.5956823,15z/data=!3m1!4b1!4m5!3m4!1s0x885847dcf0602a03:0x148545c27d30956!8m2!3d34.8043288!4d-82.586949",
             nextGame: true,

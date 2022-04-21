@@ -6,7 +6,7 @@ export default function Footer() {
     <div className='Footer'>
         <small>Copyright </small>
         <img className='copyright-logo' src="./Copyright-logo.png" alt="" />
-        <span>2022 <span className='company-name'><b>C</b>onns<b>C</b>lean<b>C</b>oding</span></span> 
+        <span>2022 <span className='company-name'><b>C</b>onns<b>C</b>oding</span></span> 
     </div>
   )
 }
