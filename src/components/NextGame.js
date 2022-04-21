@@ -6,9 +6,10 @@ import "./NextGame.css"
 function NextGame() {
 
     
-    const {apiGameData, lineUpData} = useContext(MainContext)
+    const {apiGameData, lineUpData, sortByAge} = useContext(MainContext)
     let title = apiGameData[0].title
     
+    let sortedLineUp = sortByAge(lineUpData)
   return (
         <>
         <div className='game-details-container'>
@@ -21,7 +22,11 @@ function NextGame() {
         </div>
             <h5 className='label-for-line-up'>Batting line-up</h5>
             <div className='batting-line-up-container'>
-                {lineUpData.map((player, i) => <li key={i} className='batting-line-up'>{player.imgUrl} - {player.title}</li>)}
+                {
+                sortedLineUp.map((player, i) => (
+                <li key={i} className='batting-line-up'>{player.imgUrl} - {player.title}</li>
+                ))
+                }
             </div>
             <div className='link-container'>
                 <Link to="/" className="back-to-home-link" >Back to home</Link>

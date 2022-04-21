@@ -13,7 +13,7 @@ function Team() {
   return (
     <>
     <div className='team-image-wrapper'>
-        <img className='group-picture' src="https://i.pinimg.com/originals/73/c6/47/73c64700f8c685ed297b74aaffac8efd.jpg" alt="" />
+        <img className='group-picture' src="./coming-soon.jpg" alt="" />
     </div>
     <p className='list-label'>Players are ordered left to right</p>
     <div className='list-of-players'>{teamElements}</div>
