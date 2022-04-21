@@ -1,6 +1,8 @@
 .game-card{
-    margin: 1em;
+    margin: auto;
+    margin-top: 1.5em;
     padding: 1em;
+    width: 40%;
     box-shadow: 0 2px 5px 5px;
     text-align: center;
 }
@@ -8,12 +10,35 @@
     font-size: 14px;
 }
 .game-card-image{
-    width: 100%
+    width: 30%
 }
 .game-card-links{
     display: flex;
     justify-content: center;
     gap: 2em;
+}
+/******************MOBILE / TABLET  VIEW BELOW *************/
+@media only screen and (max-width: 1244px) {
+    .game-card{
+        width: 80%;
+        margin: auto;
+        margin-top: 1.5em;
+        margin-bottom: 1em;
+        padding: 1em;
+        box-shadow: 0 2px 5px 5px;
+        text-align: center;
+    }
+    .game-card-date{
+        font-size: 14px;
+    }
+    .game-card-image{
+        width: 100%
+    }
+    .game-card-links{
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+    }
 }
 
 

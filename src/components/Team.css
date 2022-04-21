@@ -1,19 +1,53 @@
-.team-image-wrapper{
+.page-wrapper{
     text-align: center;
-    margin-top: .5em;
-    width: 100%
+}
+.team-image-wrapper{
+    width: 60%;
+    margin: auto;
+    margin-top: 1em;
 }
 .group-picture{
     margin: auto;
-    width: 90%;
+    width: 70%;
     border-radius: 20%;
     border: 2px solid black
 }
 .list-label{
     font-weight: bold;
+    font-size: 20px;
     
 }
 .list-of-players{
-    columns: 2;
+    text-align: left;
+    margin: auto;
+    width: 40%;
+    width: fit-content;
+    column-gap: 2px;
     margin-bottom: 1em;
 }
+
+/******************MOBILE / TABLET  VIEW BELOW *************/
+@media only screen and (max-width: 1244px)  {
+    .team-image-wrapper{
+        text-align: center;
+        margin-top: 3em;
+        width: 100%
+    }
+    .group-picture{
+        margin: auto;
+        width: 90%;
+        border-radius: 20%;
+        border: 2px solid black
+    }
+    .list-label{
+        font-weight: bold;
+        
+    }
+    .list-of-players{
+        columns: 2;
+        column-gap: 1em;
+        margin-bottom: 4.9em;
+    }
+    
+}
+

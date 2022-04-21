@@ -176,7 +176,7 @@ function CoachAdmin() {
                                  <button className='submit-button' onClick={submitGameInput} >Submit</button>                  
                              </fieldset> }
         {showTeam && <div>{teamElements}</div>}
-        {showGameData && <div>{gameScheduleData}</div>}
+        {showGameData && <div className='coach-game-cards'>{gameScheduleData}</div>}
     </div>
   )
 }

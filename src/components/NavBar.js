@@ -57,6 +57,12 @@ function handleSubmit(e){
             onClick={() => setMenu(!menu)}
             />
         <h1 className='Header-title'>Rock Spring's Angels</h1>
+        <div className='desktopLinkContainer'>
+        <Link onClick={() => setMenu(false)} className="desktopNavLink" to="/">Home</Link>
+        <Link onClick={() => setMenu(false)} className="desktopNavLink" to="/team">Meet the Team!</Link>
+        <Link onClick={() => setMenu(false)} className="desktopNavLink" to="/gameschedule">Game Schedule</Link>
+        </div>
+        <button className="desktop-coach-login-link" onClick={coachMenuDropdown}>Coach Login</button>
     </header>
     {menu && <div  className='dropDownMenu'>
         <Link onClick={() => setMenu(false)} className="menuLink" to="/">Home</Link>

@@ -3,7 +3,7 @@
     border-left:3px solid black;
     border-right:3px solid black;
     border-bottom:3px solid black;
-    height: 600px;
+    height: 730px;
     background-color: rgba(73, 80, 87, 1);
         background: url(https://d2jqoimos5um40.cloudfront.net/site_0051/94e41.png);
         background-position: center;
@@ -14,9 +14,9 @@
 .Home-title{
     color: white;
     width: fit-content;
-    border-radius: 9px;
+    font-size: 50px;
     margin: auto;
-    padding-top: 4em;
+    padding-top: 6%;
 }
 .Home-subtitle{
     width: fit-content;
@@ -46,25 +46,42 @@
 /* Intro/Description CSS below */
 
 .intro-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     text-align: center;
     font-size: 20px;
+    background-color: whitesmoke;
     box-shadow: 0 2px 5px 5px lightgray;
     margin: .5em;
-    padding: .5em;
+    padding: 5em .5em 5em .5em;
 }
 .intro-title{
+    grid-column: 2 / 3;
     font-family: 'Bebas Neue', cursive;
-    margin-bottom: 0;
+    padding-top: 1em;
+    font-size: 25px;
     text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    padding-bottom: 5px;
+    box-shadow: 0 3px 5px -5px;
 }
 .intro-description{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
     margin-top: 5px;
     text-align: center;
+    
 }
 .intro-picture{
-    width: 90%
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    margin: auto;
+    border-radius: 1px;
+    width: 80%;
+    box-shadow: 0 2px 30px 10px red;
 }
 .intro-section{
+    grid-column: 2 / 3;
     margin-top: 1em;
     margin-bottom: .5em;
     line-height: 1.5;
@@ -76,4 +93,90 @@
    color: blue;
    font-size: 11px;
    width: fit-content
+}
+
+/******************MOBILE / TABLET  VIEW BELOW *************/
+@media only screen and (max-width: 1244px) {
+    .Home-container{
+        text-align: center;
+        border-left:3px solid black;
+        border-right:3px solid black;
+        border-bottom:3px solid black;
+        height: 600px;
+        background-color: rgba(73, 80, 87, 1);
+            background: url(https://d2jqoimos5um40.cloudfront.net/site_0051/94e41.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            box-shadow:inset 0 0 0 2000px rgba(73, 80, 87,);
+    }
+    .Home-title{
+        color: white;
+        width: fit-content;
+        margin: auto;
+        font-size: 40px;
+        padding-top: 20%;
+    }
+    .Home-subtitle{
+        width: fit-content;
+        margin: auto;
+        color: white;
+        padding-bottom: 1em;
+        border-bottom: 2px solid white;
+    }
+    .Home-button{
+        padding: .3em;
+        font-size: 20px;
+        border-radius: 15px;
+        font-family: 'Bebas Neue', cursive;
+        color: red;
+    }
+    .Home-button:hover{
+        background-color: rgb(212, 110, 110);
+        transform: scale(1.05);
+        color: white;
+    }
+    .Home-next-game{
+        margin-bottom: 10px;
+        font-size: 30px;
+        color: white
+    }
+    
+    /* Intro/Description CSS below */
+    
+    .intro-container{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 20px;
+        box-shadow: 0 2px 5px 5px lightgray;
+        margin: .5em;
+        padding: .5em;
+    }
+    .intro-title{
+        font-family: 'Bebas Neue', cursive;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .intro-description{
+        margin-top: 5px;
+        text-align: center;
+        margin-bottom: 2.5em;
+    }
+    .intro-picture{
+        width: 90%
+    }
+    .intro-section{
+        margin-top: 2em;
+        margin-bottom: .5em;
+        line-height: 1.5;
+    }
+    .intro-church-link{
+       background: none;
+       border: none;
+       text-decoration: underline;
+       color: blue;
+       font-size: 11px;
+       width: fit-content
+    }
 }

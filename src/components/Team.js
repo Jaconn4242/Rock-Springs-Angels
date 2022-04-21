@@ -11,13 +11,15 @@ function Team() {
     })
 
   return (
-    <>
+    <div className='page-wrapper'>
     <div className='team-image-wrapper'>
         <img className='group-picture' src="./coming-soon.jpg" alt="" />
     </div>
     <p className='list-label'>Players are ordered left to right</p>
-    <div className='list-of-players'>{teamElements}</div>
-    </>
+    <ul className='list-of-players'>
+      {teamElements}
+      </ul>
+    </div>
   )
 }
 

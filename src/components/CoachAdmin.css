@@ -17,11 +17,12 @@
     margin: 1em 0 1em 0;
 }
 .new-game-input{
+    width: 50%;;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
     padding: 1em;
-    margin: 2em;
+    margin: auto;
 }
 .new-game-input > input{
     border: 1px solid black;
@@ -32,4 +33,51 @@
 }
 .choose-file-button{
     width: 70%;
+}
+.coach-game-cards{
+    width: 30%;
+    margin: auto;
+}
+
+/******************MOBILE / TABLET  VIEW BELOW *************/
+@media only screen and (max-width: 1244px) {
+    .Coach-title{
+        color: blue
+    }
+    .button-wrapper{
+        display: flex;
+        gap: 2em;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .button-wrapper > button{
+        padding: .5em;
+        font-weight: bold;
+        background-color: lightblue;
+    }
+    .team-display{
+        text-align: center;
+        margin: 1em 0 1em 0;
+    }
+    .new-game-input{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        padding: 1em;
+        margin: auto;
+    }
+    .new-game-input > input{
+        border: 1px solid black;
+        margin: .25em
+    }
+    .submit-button{
+        margin-top: 1em;
+    }
+    .choose-file-button{
+        width: 70%;
+    }
+    .coach-game-cards{
+        width: 100%;
+        margin: auto;
+    }
 }
