@@ -8,7 +8,7 @@ import GameCard from './GameCard';
 function CoachAdmin() {
 
 // FROM PROVIDER
-  const {apiGameData, setApiGameData, lineUpData, setLineUpData, sortByAge} = useContext(MainContext)
+  const {apiGameData, setApiGameData, lineUpData, setLineUpData} = useContext(MainContext)
 
 
 // Local State used for conditional rendering
@@ -23,7 +23,7 @@ function CoachAdmin() {
     imgUrl: ""
   })
 // Local State used for holding file/image upload
-  const [selectedFile, setSelectedFile] = useState({})
+  // const [selectedFile, setSelectedFile] = useState({})
 // Local Conditional Rendering
   function displayTeam(e) {
     e.preventDefault()
@@ -64,12 +64,14 @@ function CoachAdmin() {
     .then(res => {
       console.log(res.data)
       setLineUpData(prevData => prevData.map(player => (player._id === id) ? {...player, /*title: newInput.title,*/ imgUrl: newInput.imgUrl}: player))
+      // sortByAge(lineUpData)
     })
-    .then(err => console.log(err))
-
+    .catch(err => console.log(err))
+    
     
   }
-
+  
+  console.log(lineUpData)
 // id from GameCard component(Complete)
   function deleteGameCard(id){
 
@@ -104,18 +106,19 @@ function CoachAdmin() {
   }
   
   // grabs the image file and sets state
-  function fileSelectHandler(e) {
-      setSelectedFile(e.target.files[0])
-    }
+  // function fileSelectHandler(e) {
+  //     setSelectedFile(e.target.files[0])
+  //     console.log(selectedFile.name)
+  //   }
 
 // onClick of local submit button, new game info is added to state and api data via post request and setter function
   function submitGameInput(e){
     e.preventDefault()
-    alert(`Selected file - ${selectedFile.name}`)
+    // alert(`Selected file - ${selectedFile.name}`)
     let newGame = {
       title: newGameInput.title,
       description: newGameInput.description,
-      imgUrl: selectedFile.name
+      imgUrl: newGameInput.imgUrl
     }
     axios.post("https://api.vschool.io/RSA/thing/", newGame)
     .then(res => setApiGameData(prevData => ([...prevData, res.data])))
@@ -164,11 +167,11 @@ function CoachAdmin() {
                                        value={newGameInput.description}
                                        onChange={handleChange}
                                        />
-           Ballfield Image Url: <input type="file"
+           Ballfield Image Url: <input type="text"
                                        className='choose-file-button'
                                        name="imgUrl"
                                        value={newGameInput.imgUrl}
-                                       onChange={fileSelectHandler}
+                                       onChange={handleChange}
                                        />
                                  <button className='submit-button' onClick={submitGameInput} >Submit</button>                  
                              </fieldset> }

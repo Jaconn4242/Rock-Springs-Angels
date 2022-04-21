@@ -15,6 +15,7 @@ function NextGame() {
             <hr />
             <h1 className='game-details-title'>{title}
             <p className='game-details-date'>Date and Time: {apiGameData[0].description}</p></h1>
+            <p>4174 Dacusville Hwy. Easley, SC  29640</p>
             <hr />
             <img  className="game-details-picture" src={apiGameData[0].imgUrl} alt="" />
         </div>
@@ -28,5 +29,7 @@ function NextGame() {
         </>
   )
 }
+
+// useNavigate -1 takes the user back
 
 export default NextGame

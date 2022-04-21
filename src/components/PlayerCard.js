@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import "./PlayerCard.css"
+import { MainContext } from '../ContextProvider'
+
 
 function PlayerCard(props) {
 // PROPS FROM COACHADMIN.JS
@@ -8,6 +10,8 @@ function PlayerCard(props) {
 // imgUrl = batting order placement
   const {title, description, imgUrl, updatePlayerCard, deletePlayerCard } = props
 
+// Sort function from CONTEXTPROVIDER
+  const {sortByAge, lineUpData} = useContext(MainContext)
 // Local state for condition rendering
   const [editing, setEditing] = useState(false)
 
@@ -35,6 +39,7 @@ function PlayerCard(props) {
 function handleSave(e) {
   e.preventDefault()
   updatePlayerCard(props._id, newInput)
+  sortByAge(lineUpData)
   setEditing(false)
 }
   // function sortByAge(lineUpData){
@@ -79,5 +84,8 @@ function handleSave(e) {
     </>
   )
 }
+// PlayerCard.propTypes = {
+//    width: propTypes.string.isRequired
+// }
 
 export default PlayerCard

@@ -26,7 +26,9 @@ useEffect(() => {
 
  useEffect(() => {
     axios.get("https://api.vschool.io/RSALine-Up/thing")
-    .then(res => setLineUpData(res.data))
+    .then(res => {
+        setLineUpData(res.data)
+    })
     .then(err => console.log("this is good",err))
 }, [])
 
