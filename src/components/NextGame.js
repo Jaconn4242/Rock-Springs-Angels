@@ -20,7 +20,7 @@ function NextGame() {
             <hr />
             <img  className="game-details-picture" src={apiGameData[0].imgUrl} alt="" />
         </div>
-            <h5 className='label-for-line-up'>Batting line-up</h5>
+            <h3 className='label-for-line-up'>Batting line-up</h3>
             <div className='batting-line-up-container'>
                 {
                 sortedLineUp.map((player, i) => (

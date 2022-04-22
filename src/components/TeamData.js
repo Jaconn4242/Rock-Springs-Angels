@@ -63,13 +63,13 @@ const team = [
     {
         id: "",
         gender: "male",
-        firstName: "Weston",
+        firstName: "Weston J.",
         lastName: "J"
     },
     {
         id: "",
         gender: "male",
-        firstName: "Weston",
+        firstName: "Weston B.",
         lastName: "B"
     }
 ]

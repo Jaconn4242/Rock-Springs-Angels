@@ -1,4 +1,6 @@
 .game-card{
+    display: flex;
+    flex-direction: column;
     margin: auto;
     margin-top: 1.5em;
     padding: 1em;
@@ -7,9 +9,12 @@
     text-align: center;
 }
 .game-card-date{
+    margin-bottom: 5px;
     font-size: 14px;
 }
 .game-card-image{
+    margin: auto;
+    margin-top: 10px;
     width: 30%
 }
 .game-card-links{
@@ -17,6 +22,16 @@
     justify-content: center;
     gap: 2em;
 }
+.next-game-button{
+    padding: .3em;
+    width: 30%;
+    margin: auto;
+    font-size: 20px;
+    border-radius: 15px;
+    font-family: 'Bebas Neue', cursive;
+    color: red;
+}
+
 /******************MOBILE / TABLET  VIEW BELOW *************/
 @media only screen and (max-width: 1244px) {
     .game-card{
@@ -38,6 +53,14 @@
         display: flex;
         justify-content: center;
         gap: 2em;
+    }
+    .next-game-button{
+        padding: .3em;
+        font-size: 20px;
+        border-radius: 15px;
+        font-family: 'Bebas Neue', cursive;
+        color: red;
+        width: fit-content;
     }
 }
 

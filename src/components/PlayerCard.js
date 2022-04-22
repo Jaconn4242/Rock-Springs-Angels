@@ -42,19 +42,6 @@ function handleSave(e) {
   sortByAge(lineUpData)
   setEditing(false)
 }
-  // function sortByAge(lineUpData){
-  //       let sortedPlayers = lineUpData.sort((a, b) => {
-          
-  //           if(Number(a.imgUrl) < Number(b.imgUrl)){
-  //               return -1
-  //           }
-  //           if(Number(a.imgUrl) > Number(b.imgUrl)){
-  //               return 1
-  //           }
-  //           return 0
-  //       })
-  //       return sortedPlayers
-  //   }
 
 
     return (
