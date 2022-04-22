@@ -95,7 +95,7 @@
    width: fit-content
 }
 
-/******************MOBILE / TABLET  VIEW BELOW *************/
+/******************MOBILE / VIEW BELOW *************/
 @media only screen and (max-width: 1244px) {
     .Home-container{
         text-align: center;
@@ -178,5 +178,16 @@
        color: blue;
        font-size: 11px;
        width: fit-content
+    }
+}
+
+/* Tablet view */
+@media only screen and (min-width: 600px){
+    .Home-title{
+        color: white;
+        width: fit-content;
+        margin: auto;
+        font-size: 40px;
+        padding-top: 10%;
     }
 }
