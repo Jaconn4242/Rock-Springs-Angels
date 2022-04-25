@@ -23,7 +23,7 @@ hr{
     font-size: 14px;
 }
 .batting-line-up-container{
-    columns: 2;
+    /* columns: 2; */
     box-shadow: 0 2px 5px 3px;
     gap: 1em;
     width: 30%;
@@ -70,7 +70,7 @@ hr{
         font-size: 14px;
     }
     .batting-line-up-container{
-        columns: 2;
+        /* columns: 2; */
         box-shadow: 0 2px 5px 3px;
         gap: 1em;
         width: 70%;
