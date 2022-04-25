@@ -22,11 +22,12 @@ function NextGame() {
         </div>
             <h3 className='label-for-line-up'>Batting line-up</h3>
             <div className='batting-line-up-container'>
-                {
+                {/* {
                 sortedLineUp.map((player, i) => (
                 <li key={i} className='batting-line-up'>{player.imgUrl} - {player.title}</li>
                 ))
-                }
+                } */}
+                <p> TBD</p>
             </div>
             <div className='link-container'>
                 <Link to="/" className="back-to-home-link" >Back to home</Link>
