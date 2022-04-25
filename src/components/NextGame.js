@@ -15,8 +15,7 @@ function NextGame() {
         <div className='game-details-container'>
             <hr />
             <h1 className='game-details-title'>{title}
-            <p className='game-details-date'>Date and Time: {apiGameData[0].description}</p>
-            <p className='game-details-address'>4174 Dacusville Hwy. Easley, SC  29640</p></h1>
+            <p className='game-details-date'>Date and Time: {apiGameData[0].description}</p></h1>
             <hr />
             <img  className="game-details-picture" src={apiGameData[0].imgUrl} alt="" />
         </div>
