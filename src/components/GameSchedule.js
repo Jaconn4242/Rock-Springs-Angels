@@ -16,7 +16,7 @@ function GameSchedule() {
                 <hr />
                 <h3 className='game-card-title'>{game.title}
                 <p className='game-card-date'>Date: {game.description}</p></h3>
-                {game.title === "Rock Springs" ? <button onClick={() => navigate("/nextgame")} className="next-game-button">View Details</button> : null}
+                {game.title === "Blue Ridge View" ? <button onClick={() => navigate("/nextgame")} className="next-game-button">View Details</button> : null}
                 <hr />
                 <img className='game-card-image' src={game.imgUrl} alt="" />
               </div>
