@@ -51,6 +51,9 @@ hr{
     color: black;
     font-weight: 900;
 }
+.game-location{
+    font-size: 20px;
+}
 
 /******************MOBILE / TABLET  VIEW BELOW *************/
 @media only screen and (max-width: 1244px) {
