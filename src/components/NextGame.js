@@ -16,7 +16,7 @@ function NextGame() {
             <hr />
             <h1 className='game-details-title'>{title}
             <p className='game-details-date'>Date and Time: {apiGameData[0].description}</p>
-            <a className='game-location' href='https://www.google.com/maps/place/745+Wolf+Creek+Rd,+Pickens,+SC+29671/@34.9188306,-82.6311605,17z/data=!3m1!4b1!4m5!3m4!1s0x88584be9996cf69f:0x35d7680cb3a51dbb!8m2!3d34.9188306!4d-82.6289718'>Get Directions</a>
+            <a className='game-location' href='https://www.google.com/maps/dir/34.8839065,-82.7208192/Rock+Springs+Baptist+Church,+201+Rock+Springs+Rd+%231430,+Easley,+SC+29642/@34.8575919,-82.7059177,12z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x885837ef0778fc87:0xab33bc30390ea85e!2m2!1d-82.5502017!2d34.8240447'>Get Directions</a>
             </h1>
             <hr />
             <img  className="game-details-picture" src={apiGameData[0].imgUrl} alt="" />
