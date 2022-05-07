@@ -5,8 +5,8 @@ import "./NextGame.css"
 
 function NextGame() {
 
-    
-    const {apiGameData, lineUpData, sortByAge} = useContext(MainContext)
+
+    const {apiGameData, lineUpData, sortByAge, displayLineUp} = useContext(MainContext)
     let title = apiGameData[0].title
     
     let sortedLineUp = sortByAge(lineUpData)
@@ -22,14 +22,14 @@ function NextGame() {
             <img  className="game-details-picture" src={apiGameData[0].imgUrl} alt="" />
         </div>
             <h3 className='label-for-line-up'>Batting line-up</h3>
-            <div className='batting-line-up-container'>
-                {/* {
+            {displayLineUp ? <div className='batting-line-up-container'>
+                 {
                 sortedLineUp.map((player, i) => (
                 <li key={i} className='batting-line-up'>{player.imgUrl} - {player.title}</li>
                 ))
-                } */}
-                <p> TBD</p>
-            </div>
+                } 
+            </div> :
+            <p className='to-be-determined-box'>TBD</p>}
             <div className='link-container'>
                 <Link to="/" className="back-to-home-link" >Back to home</Link>
             </div>   

@@ -54,6 +54,14 @@ hr{
 .game-location{
     font-size: 20px;
 }
+.to-be-determined-box{
+    box-shadow: 0 2px 5px;
+    width: 40%;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+}
+
 
 /******************MOBILE / TABLET  VIEW BELOW *************/
 @media only screen and (max-width: 1244px) {

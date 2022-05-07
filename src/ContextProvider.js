@@ -24,6 +24,18 @@ useEffect(() => {
     .then(err => console.log("this is good:",err))
 }, [])
 
+useEffect(() => {
+    console.count("rendered toggle")
+    axios.get("https://api.vschool.io/RSAtoggle/thing")
+    .then(res => {
+        if(res.data[0].title === "true"){
+            setDisplayLineUp(true)
+        } else {
+            setDisplayLineUp(false)
+        }
+    })
+    .catch(err => console.log(err))
+}, [])
  useEffect(() => {
     axios.get("https://api.vschool.io/RSALine-Up/thing")
     .then(res => {
@@ -43,12 +55,9 @@ function sortByAge(lineUpData){
         }
         return 0
     })
-    console.log("clicked")
     return sortedPlayers
 }
-
-
-
+    const [displayLineUp, setDisplayLineUp] = useState("")
     const [team, setTeam] = useState(TeamData)
     const [gameData, setGameData] = useState(GameData)
 
@@ -59,6 +68,8 @@ function sortByAge(lineUpData){
             gameData, 
             apiGameData,
             lineUpData,
+            displayLineUp,
+            setDisplayLineUp,
             sortByAge,
             setLineUpData,
             setApiGameData,

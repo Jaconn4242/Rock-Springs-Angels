@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import { MainContext } from '../ContextProvider'
 import PlayerCard from "./PlayerCard"
 import axios from "axios"
@@ -8,8 +8,7 @@ import GameCard from './GameCard';
 function CoachAdmin() {
 
 // FROM PROVIDER
-  const {apiGameData, setApiGameData, lineUpData, setLineUpData} = useContext(MainContext)
-
+  const {apiGameData, setApiGameData, lineUpData, setLineUpData, displayLineUp, setDisplayLineUp} = useContext(MainContext)
 
 // Local State used for conditional rendering
   const [showTeam, setShowTeam] = useState(false)
@@ -64,14 +63,10 @@ function CoachAdmin() {
     .then(res => {
       console.log(res.data)
       setLineUpData(prevData => prevData.map(player => (player._id === id) ? {...player, /*title: newInput.title,*/ imgUrl: newInput.imgUrl}: player))
-      // sortByAge(lineUpData)
     })
     .catch(err => console.log(err))
-    
-    
   }
   
-  console.log(lineUpData)
 // id from GameCard component(Complete)
   function deleteGameCard(id){
 
@@ -137,10 +132,30 @@ function CoachAdmin() {
   const teamElements = lineUpData.map((player, i) => { 
     return (<PlayerCard {...player} key={i} updatePlayerCard={updatePlayerCard} deletePlayerCard={deletePlayerCard} />)
   })
-  
+// Two functions below toggle the display
+function toggleLineUpView(e){
+  e.preventDefault()
+  setDisplayLineUp(true)
+  let update = {
+    title: true
+  }
+    axios.put("https://api.vschool.io/RSAtoggle/thing/6275b82518d1a05bceae522a", update)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err))
+}
 
+function setTBD(e){
+  e.preventDefault()
+  setDisplayLineUp(false)
+  let update = {
+    title: false
+  }
+    axios.put("https://api.vschool.io/RSAtoggle/thing/6275b82518d1a05bceae522a", update)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err))
+}
+console.log(displayLineUp)
 
-  
 
     
   return (
@@ -175,6 +190,10 @@ function CoachAdmin() {
                                        />
                                  <button className='submit-button' onClick={submitGameInput} >Submit</button>                  
                              </fieldset> }
+        {showTeam && <div>
+          <button style={{background: displayLineUp ? "green" : "white" }} onClick={toggleLineUpView}>Display Line Up</button>
+          <button  style={{background: !displayLineUp ? "green" : "white"}} onClick={setTBD}>Set TBD</button>
+        </div>}
         {showTeam && <div>{teamElements}</div>}
         {showGameData && <div className='coach-game-cards'>{gameScheduleData}</div>}
     </div>
